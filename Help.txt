@@ -1,0 +1,30 @@
+HELP_CODE=1	//---- report help
+	Reports are requested through a nested key with syntax:
+	PROGRAM_REPORT_# = REPORT_NAME
+
+	For Example:
+	LINKSUM_REPORT_1 = TOP_100_LINK_FLOWS
+	LINKSUM_REPORT_2 = TOP_100_LANE_FLOWS
+	LINKSUM_REPORT_3 = LINK_VOLUME_GREATER_THAN_1.3
+	LINKSUM_REPORT_4 = LINK_VOLUME_GREATER_THAN_2.5
+
+	Note that the last two reports request the same report with different filtering criteria (1.3 and 2.5)
+	This report is defined with a wildcard code (LINK_VOLUME_GREATER_THEN_*) that enables the user 
+	to specify a filter parameter. Multiple reports of this type can be generated.
+
+	In most cases, the reports are printed in the report file in the report key order.
+HELP_CODE=2	//---- format help
+	Format keys are used to define how data files are read or created.
+	If a format key is not provided, the value of the DEFAULT_FILE_FORMAT key is used.
+	The default value of the DEFAULT_FILE_FORMAT key is TAB_DELIMITED. 
+
+	In most cases, TRANSIMS constructs a *.def file for each file it creates. 
+
+	The *.def file enables the software to identify the file format and field names for files it reads.
+	If a *.def file is available, the format key is ignored.
+	If a *.def file is not available, the format key tells the program how to build a *.def file.
+	For Delimited files, the software reads the header line	and the first 100 records to determine the field types.
+	The software cannot build *.def files for Binary and Fixed Columm files.
+
+	The VERSION3 format option is provided for backwards compatibility.  In many cases, the Version 5 software can
+	read a Version 3 or Version 4 file without modification.  The Version 5 software does not create VERSION3 files.
