@@ -4,7 +4,7 @@
 
 #include "TppMatrix.hpp"
 
-#include <windows.h>
+// #include <windows.h>
 
 //---- matrix types ----
 
@@ -61,26 +61,26 @@ TPPlus_Matrix::TPPlus_Matrix (Access_Type access) : Db_Matrix (access, TPPLUS)
 bool TPPlus_Matrix::Load_DLL (void)
 {
 	if (FileInquire == 0) {
-		HMODULE hMod;
+		// HMODULE hMod;
 
-		hMod = LoadLibrary ("tppdlibx.dll");
+		// hMod = LoadLibrary ("tppdlibx.dll");
 
-		FileInquire       = (pf_FileInquire) GetProcAddress (hMod, "FileInquire");
-		TppMatOpenIP      = (pf_TppMatOpenIP) GetProcAddress (hMod, "TppMatOpenIP");
-		TppMatOpenOP      = (pf_TppMatOpenOP) GetProcAddress (hMod, "TppMatOpenOP");
-		TppMatMatSet      = (pf_TppMatMatSet) GetProcAddress (hMod, "TppMatSet");
-		TppMatClose       = (pf_TppMatClose) GetProcAddress (hMod, "TppMatClose");
+		// FileInquire       = (pf_FileInquire) GetProcAddress (hMod, "FileInquire");
+		// TppMatOpenIP      = (pf_TppMatOpenIP) GetProcAddress (hMod, "TppMatOpenIP");
+		// TppMatOpenOP      = (pf_TppMatOpenOP) GetProcAddress (hMod, "TppMatOpenOP");
+		// TppMatMatSet      = (pf_TppMatMatSet) GetProcAddress (hMod, "TppMatSet");
+		// TppMatClose       = (pf_TppMatClose) GetProcAddress (hMod, "TppMatClose");
 
-		TppMatReadSelect  = (pf_TppMatReadSelect) GetProcAddress (hMod, "TppMatReadSelect");
-		TppMatReadNext    = (pf_TppMatReadNext) GetProcAddress (hMod, "TppMatReadNext");
-		TppMatReadDirect  = (pf_TppMatReadDirect) GetProcAddress (hMod, "TppMatReadDirect");
-		TppMatMatWriteRow = (pf_TppMatMatWriteRow) GetProcAddress (hMod, "TppMatWriteRow");
-	    
-		TppMatPos         = (pf_TppMatPos) GetProcAddress (hMod, "TppMatPos");
-		TppMatGetPos      = (pf_TppMatGetPos) GetProcAddress (hMod, "TppMatGetPos");
-		TppMatSeek        = (pf_TppMatSeek) GetProcAddress (hMod, "TppMatSeek");
+		// TppMatReadSelect  = (pf_TppMatReadSelect) GetProcAddress (hMod, "TppMatReadSelect");
+		// TppMatReadNext    = (pf_TppMatReadNext) GetProcAddress (hMod, "TppMatReadNext");
+		// TppMatReadDirect  = (pf_TppMatReadDirect) GetProcAddress (hMod, "TppMatReadDirect");
+		// TppMatMatWriteRow = (pf_TppMatMatWriteRow) GetProcAddress (hMod, "TppMatWriteRow");
+	    // 
+		// TppMatPos         = (pf_TppMatPos) GetProcAddress (hMod, "TppMatPos");
+		// TppMatGetPos      = (pf_TppMatGetPos) GetProcAddress (hMod, "TppMatGetPos");
+		// TppMatSeek        = (pf_TppMatSeek) GetProcAddress (hMod, "TppMatSeek");
 
-		TppMatMatResize   = (pf_TppMatMatResize) GetProcAddress (hMod, "TppMatResize");
+		// TppMatMatResize   = (pf_TppMatMatResize) GetProcAddress (hMod, "TppMatResize");
 
 		if (FileInquire == 0) return (false);
 	}
