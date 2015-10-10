@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 2.8.4)
+cmake_minimum_required (VERSION 2.8.12)
 
 project (Transims) # Version 5!
 # !!!! TransCAD support is disabled !!!!
@@ -42,6 +42,8 @@ add_library(TcadLib STATIC ${TCADLIB_SOURCES})
 aux_source_directory(TppLib TPPLIB_SOURCES)
 add_library(TppLib STATIC ${TPPLIB_SOURCES})
 
+find_package(Threads REQUIRED)
+
 foreach(target_name IN ITEMS ArcNet ArcPlan ArcSnapshot ConvertTrips EventSum ExportPlans ExportNet FileFormat IntControl LineSum LinkData LinkDelay LinkSum LocationData 
 	NetPrep NewFormat PathSkim PlanCompare PlanPrep PlanSelect PlanSum PlanTrips ModeChoice ProblemSelect RandomSelect Relocate Router SimSubareas Simulator 
 	TransimsNet TransitAccess TransitDiff TransitNet TripPrep Validate ZoneData)
@@ -53,6 +55,13 @@ foreach(target_name IN ITEMS ArcNet ArcPlan ArcSnapshot ConvertTrips EventSum Ex
 		endforeach(dirname)
 	endif()
 	add_executable(${target_name} ${SOURCES})
+	if(THREADS_HAVE_PTHREAD_ARG)
+  		target_compile_options(PUBLIC ${target_name} "-pthread")
+	endif()
+	if(CMAKE_THREAD_LIBS_INIT)
+  		target_link_libraries(${target_name} "${CMAKE_THREAD_LIBS_INIT}")
+	endif()
+	target_link_libraries(${target_name} ${CMAKE_DL_LIBS})
 	target_link_libraries(${target_name} SysLib)
 	target_link_libraries(${target_name} sqlite3)
 	target_link_libraries(${target_name} TcadLib)
