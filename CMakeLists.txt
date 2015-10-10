@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 2.8.12)
+cmake_minimum_required (VERSION 2.8.4)
 
 project (Transims) # Version 5!
 # !!!! TransCAD support is disabled !!!!
@@ -56,10 +56,11 @@ foreach(target_name IN ITEMS ArcNet ArcPlan ArcSnapshot ConvertTrips EventSum Ex
 	endif()
 	add_executable(${target_name} ${SOURCES})
 	if(THREADS_HAVE_PTHREAD_ARG)
-  		target_compile_options(PUBLIC ${target_name} "-pthread")
+	  set_property(TARGET ${target_name} PROPERTY COMPILE_OPTIONS "-pthread")
+	  set_property(TARGET ${target_name} PROPERTY INTERFACE_COMPILE_OPTIONS "-pthread")
 	endif()
 	if(CMAKE_THREAD_LIBS_INIT)
-  		target_link_libraries(${target_name} "${CMAKE_THREAD_LIBS_INIT}")
+	  target_link_libraries(${target_name} "${CMAKE_THREAD_LIBS_INIT}")
 	endif()
 	target_link_libraries(${target_name} ${CMAKE_DL_LIBS})
 	target_link_libraries(${target_name} SysLib)
