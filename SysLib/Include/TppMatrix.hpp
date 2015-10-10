@@ -59,39 +59,39 @@ private:
 	} TppMatrix;
 #pragma pack (pop)
 
-	typedef int ( __cdecl *pf_FileInquire)  (char *filename, TppMatrix **fh);
-	typedef int ( __cdecl *pf_TppMatOpenIP) (TppMatrix *fh, char *path, int type);
-	typedef int ( __cdecl *pf_TppMatOpenOP) (TppMatrix *fh, char *label, char *program, void *time, char *license, int type);
-	typedef int ( __cdecl *pf_TppMatMatSet) (TppMatrix **fh, int type, char *name, int zones, int tables);
-	typedef int ( __cdecl *pf_TppMatClose)  (TppMatrix *fh);
+	// typedef int ( __cdecl *pf_FileInquire)  (char *filename, TppMatrix **fh);
+	// typedef int ( __cdecl *pf_TppMatOpenIP) (TppMatrix *fh, char *path, int type);
+	// typedef int ( __cdecl *pf_TppMatOpenOP) (TppMatrix *fh, char *label, char *program, void *time, char *license, int type);
+	// typedef int ( __cdecl *pf_TppMatMatSet) (TppMatrix **fh, int type, char *name, int zones, int tables);
+	// typedef int ( __cdecl *pf_TppMatClose)  (TppMatrix *fh);
 
-	typedef int ( __cdecl *pf_TppMatReadSelect)  (TppMatrix *fh, int org, int table, void *data);
-	typedef int ( __cdecl *pf_TppMatReadDirect)  (TppMatrix *fh, unsigned long location, void *matrix);
-	typedef int ( __cdecl *pf_TppMatReadNext)    (int op_code, TppMatrix *fh, void *data);
-	typedef int ( __cdecl *pf_TppMatMatWriteRow) (TppMatrix *fh, int org, int table, int format, void *data);
+	// typedef int ( __cdecl *pf_TppMatReadSelect)  (TppMatrix *fh, int org, int table, void *data);
+	// typedef int ( __cdecl *pf_TppMatReadDirect)  (TppMatrix *fh, unsigned long location, void *matrix);
+	// typedef int ( __cdecl *pf_TppMatReadNext)    (int op_code, TppMatrix *fh, void *data);
+	// typedef int ( __cdecl *pf_TppMatMatWriteRow) (TppMatrix *fh, int org, int table, int format, void *data);
 
-	typedef int ( __cdecl *pf_TppMatPos)    (TppMatrix *fh, unsigned long offset);
-	typedef int ( __cdecl *pf_TppMatGetPos) (TppMatrix *fh);
-	typedef int ( __cdecl *pf_TppMatSeek)   (TppMatrix *fh, long offset, int base);
+	// typedef int ( __cdecl *pf_TppMatPos)    (TppMatrix *fh, unsigned long offset);
+	// typedef int ( __cdecl *pf_TppMatGetPos) (TppMatrix *fh);
+	// typedef int ( __cdecl *pf_TppMatSeek)   (TppMatrix *fh, long offset, int base);
 
-	typedef TppMatrix * ( __cdecl *pf_TppMatMatResize) (TppMatrix **fh);
+	// typedef TppMatrix * ( __cdecl *pf_TppMatMatResize) (TppMatrix **fh);
 
-	static pf_FileInquire       FileInquire;
-	static pf_TppMatOpenIP      TppMatOpenIP;
-	static pf_TppMatOpenOP      TppMatOpenOP;
-	static pf_TppMatMatSet      TppMatMatSet;
-	static pf_TppMatClose       TppMatClose;
+	// static pf_FileInquire       FileInquire;
+	// static pf_TppMatOpenIP      TppMatOpenIP;
+	// static pf_TppMatOpenOP      TppMatOpenOP;
+	// static pf_TppMatMatSet      TppMatMatSet;
+	// static pf_TppMatClose       TppMatClose;
 
-	static pf_TppMatReadSelect  TppMatReadSelect;
-	static pf_TppMatReadNext    TppMatReadNext;
-	static pf_TppMatReadDirect  TppMatReadDirect;
-	static pf_TppMatMatWriteRow TppMatMatWriteRow;
+	// static pf_TppMatReadSelect  TppMatReadSelect;
+	// static pf_TppMatReadNext    TppMatReadNext;
+	// static pf_TppMatReadDirect  TppMatReadDirect;
+	// static pf_TppMatMatWriteRow TppMatMatWriteRow;
 
-	static pf_TppMatPos         TppMatPos;
-	static pf_TppMatGetPos      TppMatGetPos;
-	static pf_TppMatSeek        TppMatSeek;
+	// static pf_TppMatPos         TppMatPos;
+	// static pf_TppMatGetPos      TppMatGetPos;
+	// static pf_TppMatSeek        TppMatSeek;
 
-	static pf_TppMatMatResize   TppMatMatResize;
+	// static pf_TppMatMatResize   TppMatMatResize;
 
 	TppMatrix *fh;
 };
