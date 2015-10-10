@@ -38,9 +38,11 @@ add_library(sqlite3 STATIC ${SQLITE_SOURCES})
 
 aux_source_directory(TcadLib TCADLIB_SOURCES)
 add_library(TcadLib STATIC ${TCADLIB_SOURCES})
+target_link_libraries(TcadLib SysLib)
 
 aux_source_directory(TppLib TPPLIB_SOURCES)
 add_library(TppLib STATIC ${TPPLIB_SOURCES})
+target_link_libraries(TppLib SysLib)
 
 find_package(Threads REQUIRED)
 
