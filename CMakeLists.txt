@@ -9,6 +9,10 @@ set(PROJECT_GCC_FLAGS "${PROJECT_GCC_FLAGS} -w") # comment this if you want to s
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${PROJECT_GCC_FLAGS}")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${PROJECT_GCC_FLAGS}")
 
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
 foreach(target_with_data_dir IN ITEMS
 		AdjustPlans ConvertTours ConvertTrips Emissions EventSum LineSum Microsimulator ModeChoice PopSyn Progression
 		Router SmoothData SmoothPlans TransimsNet TransitNet)
